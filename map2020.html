@@ -1,0 +1,115 @@
+<html>
+  <body style="margin:0px">
+    <div id="map" style="width:100%;height:100%"></div>
+    <script>
+      function initMap() {
+        var data = [
+          {
+            description: "Malorees",
+            status: "red",
+            lat: 51.541125,
+            lng: -0.213528
+          },
+          {
+            description: "Wessex Gardens Primary",
+            status: "red",
+            lat: 51.571783,
+            lng: -0.209371
+          },
+          {
+            description: "Stag Lane Junior",
+            status: "red",
+            lat: 51.599369,
+            lng: -0.28056 
+          },
+          {
+            description: "Dollis Junior",
+            status: "red",
+            lat: 51.608477,
+            lng: -0.222925
+          },
+          {
+            description: "Martin Primary",
+            status: "red",
+            lat: 51.594649,
+            lng: -0.168641
+          },
+          {
+            description: "Drayton Park",
+            status: "red",
+            lat: 51.551662,
+            lng: -0.105591
+          },
+          {
+            description: "Fleet Primary",
+            status: "red",
+            lat: 51.553411,
+            lng: -0.159312
+          },
+          {
+            description: "Honilands Primary",
+            status: "red",
+            lat: 51.677716,
+            lng: -0.049622
+          },
+          {
+            description: "Worcesters Primary",
+            status: "red",
+            lat: 51.667529,
+            lng: -0.064678
+          },
+          {
+            description: "Firs Farm",
+            status: "red",
+            lat: 51.623914,
+            lng: -0.083488
+          },
+          {
+            description: "Starks Field",
+            status: "red",
+            lat: 51.628782,
+            lng: -0.07387
+          },
+          {
+            description: "Rosary Roman Catholic Primary School",
+            status: "red",
+            lat: 51.55178,
+            lng: 	-0.167
+          },
+          {
+            description: "Holy Trinity CoE School",
+            status: "red",
+            lat: 51.591094,
+            lng: -0.169022
+          }
+        ];
+
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 10,
+          center: { lat: 51.6, lng: -0.15 },
+          mapTypeControl: false,
+          streetViewControl: false
+        });
+
+        var iconBase = "http://maps.google.com/mapfiles/ms/icons/";
+        var iconFromStatus = {
+          red: iconBase + "red-pushpin.png",
+          green: iconBase + "grn-pushpin.png"
+        };
+        for (var i = 0; i < data.length; i++) {
+          new google.maps.Marker({
+            position: { lat: data[i].lat, lng: data[i].lng },
+            map: map,
+            //label: data[i].description,
+            icon: iconFromStatus[data[i].status]
+          });
+        }
+      }
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2h1P8RbAMjA8iHqs1RyQu0495FWxB37A&callback=initMap"
+    ></script>
+  </body>
+</html>
