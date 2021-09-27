@@ -1,0 +1,122 @@
+<html>
+  <body style="margin:0px">
+    <div id="map" style="width:100%;height:100%"></div>
+    <script>
+      function initMap() {
+        var data = [
+          {
+            description: "Malorees",
+            status: "blue",
+            lat: 51.541125,
+            lng: -0.213528
+          },
+          
+          {
+            description: "Drayton Park",
+            status: "blue",
+            lat: 51.551662,
+            lng: -0.105591
+          },
+          
+          { description: "Worcesters Primary",
+            status: "blue",
+            lat: 51.667529,
+            lng: -0.064678
+          },
+          
+          {
+            description: "Starks Field",
+            status: "blue",
+            lat: 51.628782,
+            lng: -0.07387
+          },
+          {
+            description: "Rosary Roman Catholic Primary School",
+            status: "blue",
+            lat: 51.55178,
+            lng: 	-0.167
+          },
+          {
+            description: "Ashmount Primary School",
+            status: "blue",
+            lat: 51.573959,
+            lng: 	-0.122003
+          }, 
+          {
+            description: "Duncombe Primary School",
+            status: "blue",
+            lat: 51.56699,
+            lng: 	-0.123705
+          }, 
+          {
+            description: "Coleridge Primary School",
+            status: "blue",
+            lat: 51.576416,
+            lng: 	-0.12648
+          },
+         {
+            description: "Netley Primary School",
+            status: "blue",
+            lat: 51.52771,
+            lng: 	-0.140616
+          }, 
+          {
+            description: "Gospel Oak Primary School",
+            status: "blue",
+            lat: 51.554622,
+            lng: 	-0.152963
+          }, 
+          {
+            description: "Beckford Primary School",
+            status: "blue",
+            lat: 51.550753,
+            lng: 	-0.199482
+          }, 
+           {
+            description: "Bell Lane Primary School",
+            status: "blue",
+            lat: 51.587079,
+            lng: 	-0.215714
+          }, 
+          {
+            description: "Kingfisher Hall Primary Academy",
+            status: "blue",
+            lat: 51.651788,
+            lng: 	-0.044903
+          } 
+          
+          
+          
+        ];
+
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 10,
+          center: { lat: 51.6, lng: -0.15 },
+          mapTypeControl: false,
+          streetViewControl: false
+        });
+
+        var iconBase = "http://maps.google.com/mapfiles/ms/icons/";
+        var iconFromStatus = {
+          red: iconBase + "red-pushpin.png",
+          green: iconBase + "grn-pushpin.png",
+          blue: iconBase + "blue-pushpin.png",
+          purple: iconBase + "purple-pushpin.png"
+        };
+        for (var i = 0; i < data.length; i++) {
+          new google.maps.Marker({
+            position: { lat: data[i].lat, lng: data[i].lng },
+            map: map,
+            //label: data[i].description,
+            icon: iconFromStatus[data[i].status]
+          });
+        }
+      }
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2h1P8RbAMjA8iHqs1RyQu0495FWxB37A&callback=initMap"
+    ></script>
+  </body>
+</html>
