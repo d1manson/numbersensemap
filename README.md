@@ -1,2 +1,2 @@
 # numbersensemap
-for use on numbersense.org.uk
+for use as iframes on https://www.numberchampions.org.uk/ 
