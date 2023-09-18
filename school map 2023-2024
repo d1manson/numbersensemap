@@ -1,0 +1,267 @@
+<html>
+  <body style="margin: 0px">
+    <div id="map" style="width: 100%; height: 100%"></div>
+    <script>
+      function initMap() {
+        
+        // =============================================
+        // =============================================
+        // ===== LIST OF SCHOOLS =======================
+        // =============================================
+        // =============================================
+        
+        var data = [
+          {
+            description: "Malorees",
+            status: "blue",
+            lat: 51.541125,
+            lng: -0.213528,
+          },
+          {
+            description: "Drayton Park",
+            status: "blue",
+            lat: 51.551662,
+            lng: -0.105591,
+          },
+                      
+          {
+            description: "Our Lady Of Grace Catholic Junior",
+            status: "blue",
+            lat: 51.56169863,
+            lng: -0.233339501,
+          },
+          {
+            description: "Wessex Gardens Primary",
+            status: "blue",
+            lat: 51.571783,
+            lng: -0.209371,
+          },
+          {
+            description: "Salusbury Primary",
+            status: "blue",
+            lat: 51.5368857,
+            lng: -0.20578607627,
+          },
+         
+          {
+            description: "Ashmount Primary School",
+            status: "blue",
+            lat: 51.573959,
+            lng: -0.122003,
+          },
+          {
+            description: "Coleridge Primary School",
+            status: "blue",
+            lat: 51.576416,
+            lng: -0.12648,
+          },
+          {
+            description: "Gospel Oak Primary School",
+            status: "blue",
+            lat: 51.554622,
+            lng: -0.152963,
+          },
+          {
+            description: "Bell Lane Primary School",
+            status: "blue",
+            lat: 51.587079,
+            lng: -0.215714,
+          },
+          {
+            description: "St Mary's CoE Barnet",
+            status: "blue",
+            lat: 51.604358,
+            lng: -0.202394,
+          },
+          {
+            description: "Colindale Primary School",
+            status: "blue",
+            lat: 51.58956,
+            lng: -0.24674,
+          },
+          
+          {
+            description: "Fleet Primary School",
+            status: "blue",
+            lat: 51.55372,
+            lng: -0.15932,
+          },
+          
+          {
+            description: "Edith Neville School",
+            status: "blue",
+            lat: 51.53295,
+            lng: -0.13126,
+          },
+          {
+            description: "Honilands Primary School",
+            status: "blue",
+            lat: 51.67792,
+            lng: -0.04977,
+          },
+          {
+            description: "Our Lady of Lourdes Catholic Primary School",
+            status: "blue",
+            lat: 51.6157,
+            lng: -0.13628,
+          },
+          {
+            description: "Yerbury Primary School",
+            status: "blue",
+            lat: 51.56129,
+            lng: -0.13021,
+          },
+          
+
+          {
+            description: "Frith Manor Primary",
+            status: "blue",
+            lat:  51.614976,
+            lng: -0.20178,
+          },
+         
+          {
+            description: "Preston Manor Primary",
+            status: "blue",
+            lat:  51.565918 ,
+            lng: -0.288898,
+          },
+
+           {
+            description: "St John’s Walham Green CE Primary",
+            status: "blue",
+            lat: 51.48187  ,
+            lng: -0.213632,
+          },
+          
+          {
+            description: "Stroud Green Primary School",
+            status: "blue",
+            lat: 51.56867985 ,
+            lng: -0.061076,
+          },
+         
+          {
+            description: "Campsbourne School",
+            status: "blue",
+            lat:  51.59103545,
+            lng: -0.12183483461304337,
+          },
+          
+          {
+            description: "Bandon Hill Primary School",
+            status: "blue",
+            lat:  51.356000699999996,
+            lng: -0.15770919879239909,
+          },
+          
+          {
+            description: "Bounds Green Infants School",
+            status: "blue",
+            lat:  51.60578595,
+            lng: -0.1239433119779666,
+          },
+                   
+          
+           {
+            description: "Duncombe Primary",
+            status: "blue",
+            lat: 51.56699 ,
+            lng: -0.10743060819357816,
+          },
+          
+           {
+            description: "Bevington Primary",
+            status: "blue",
+            lat: 51.521248,
+            lng: -0.208877,
+          },
+          
+           {
+            description: "Oxford Gardens Primary",
+            status: "blue",
+            lat: 51.51739,
+            lng: -0.216691,
+          },
+          
+           {
+            description: "Barlby Primary",
+            status: "blue",
+            lat: 51.523306,
+            lng: -0.216451,
+          },
+          
+           {
+            description: "Harris Federation - East Dulwich",
+            status: "blue",
+            lat: 51.455994,
+            lng: -0.076498,
+          },
+          
+           {
+            description: "Smallwood Primary",
+            status: "blue",
+            lat:  51.43094,
+            lng: -0.177765,
+          },
+          
+          {
+            description: "Pimlico Primary",
+            status: "blue",
+            lat: 51.48821147506688,
+            lng: -0.1376308455703867,
+          },
+         
+        ];
+
+        // =============================================
+        // =============================================
+        // ==== END OF LIST OF SCHOOLS =================
+        // =============================================
+        // =============================================
+
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 10,
+          center: { lat: 51.6, lng: -0.15 },
+          mapTypeControl: false,
+          streetViewControl: false,
+        });
+
+        var iconBase = "http://maps.google.com/mapfiles/ms/icons/";
+        var iconFromStatus = {
+          red: iconBase + "red-pushpin.png",
+          green: iconBase + "grn-pushpin.png",
+          blue: iconBase + "blue-pushpin.png",
+          purple: iconBase + "purple-pushpin.png",
+        };
+
+        var infoWindow = new google.maps.InfoWindow({});
+
+        function addInfoToMarker(marker, description) {
+          marker.addListener("click", function () {
+            infoWindow.setContent(description);
+            infoWindow.open({
+              anchor: marker,
+              map: map,
+              shouldFocus: false,
+            });
+          });
+        }
+
+        for (var i = 0; i < data.length; i++) {
+          var marker = new google.maps.Marker({
+            position: { lat: data[i].lat, lng: data[i].lng },
+            map: map,
+            icon: iconFromStatus[data[i].status],
+          });
+          addInfoToMarker(marker, data[i].description);
+        }
+      }
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2h1P8RbAMjA8iHqs1RyQu0495FWxB37A&callback=initMap"
+    ></script>
+  </body>
+</html>
