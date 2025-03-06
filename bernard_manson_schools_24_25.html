@@ -1,327 +1,226 @@
-
-
-<html>
-  <body style="margin: 0px">
-    <div id="map" style="width: 100%; height: 100%"></div>
-    <script>
-      function initMap() {
-        // =============================================
-        // =============================================
-        // ===== LIST OF SCHOOLS =======================
-        // =============================================
-        // =============================================
-        
-       var data = [
-          {
-            description: "Malorees",
-            status: "blue",
-            lat: 51.541125,
-            lng: -0.213528,
-          },
-          
-          {
-            description: "Drayton Park",
-            status: "blue",
-            lat: 51.551662,
-            lng: -0.105591,
-          },
-                      
-          {
-            description: "Our Lady Of Grace Catholic Junior",
-            status: "blue",
-            lat: 51.56169863,
-            lng: -0.233339501,
-          },
-          {
-            description: "Wessex Gardens Primary",
-            status: "blue",
-            lat: 51.571783,
-            lng: -0.209371,
-          },
-          
-         
-          {
-            description: "Ashmount Primary School",
-            status: "blue",
-            lat: 51.573959,
-            lng: -0.122003,
-          },
-          {
-            description: "Coleridge Primary School",
-            status: "blue",
-            lat: 51.576416,
-            lng: -0.12648,
-          },
-          {
-            description: "Gospel Oak Primary School",
-            status: "blue",
-            lat: 51.554622,
-            lng: -0.152963,
-          },
-          
-          
-          {
-            description: "St Mary's CoE Barnet",
-            status: "blue",
-            lat: 51.604358,
-            lng: -0.202394,
-          },
-          {
-            description: "Colindale Primary School",
-            status: "blue",
-            lat: 51.58956,
-            lng: -0.24674,
-          },
-          
-          {
-            description: "Fleet Primary School",
-            status: "blue",
-            lat: 51.55372,
-            lng: -0.15932,
-          },
-          
-          {
-            description: "Edith Neville School",
-            status: "blue",
-            lat: 51.53295,
-            lng: -0.13126,
-          },
-          
-          
-          {
-            description: "Our Lady of Lourdes Catholic Primary School",
-            status: "blue",
-            lat: 51.6157,
-            lng: -0.13628,
-          },
-          {
-            description: "Yerbury Primary School",
-            status: "blue",
-            lat: 51.56129,
-            lng: -0.13021,
-          },
-                                    
-           {
-            description: "St John’s Walham Green CE Primary",
-            status: "blue",
-            lat: 51.48187  ,
-            lng: -0.213632,
-          },
-          
-          {
-            description: "Stroud Green Primary School",
-            status: "blue",
-            lat: 51.568915,
-            lng: -0.107394,
-          },
-         
-          {
-            description: "Campsbourne School",
-            status: "blue",
-            lat:  51.59103545,
-            lng: -0.12183483461304337,
-          },
-          
-         
-          {
-            description: "Bounds Green Infants School",
-            status: "blue",
-            lat:  51.60578595,
-            lng: -0.1239433119779666,
-          },
-                       
-           {
-            description: "Duncombe Primary",
-            status: "blue",
-            lat: 51.567078855759,
-            lng: -0.123668544,
-          },
-                         
-                     
-           {
-            description: "Smallwood Primary",
-            status: "blue",
-            lat:  51.43094,
-            lng: -0.177765,
-          },
-
-          {
-            description: "Christ Church Bentinck CE Primary School",
-            status: "blue",
-            lat:  51.52153366,
-            lng: -0.16606352,
-          },
-
-           {
-            description: "Christ Church CE Primary School",
-            status: "blue",
-            lat:  51.65883772,
-            lng: -0.211718068,
-          },
-
-          
-
-          {
-            description: "St Paul's CofE Primary School",
-            status: "blue",
-            lat:  51.61655022,
-            lng: -0.1440046871538672,
-          },
-
-          
-           {
-            description: "School 21",
-            status: "blue",
-            lat:  51.53841987,
-            lng: 0.001800453,
-          },
-
-          {
-            description: "School 360",
-            status: "blue",
-            lat:  51.53131239,
-            lng: -0.009166845,
-          },
-
-          {
-            description: "Surrey Square Primary",
-            status: "blue",
-            lat:  51.4895059053929,
-            lng: -0.083109315,
-          },
-
-          {
-            description: "Alexandra Primary School",
-            status: "blue",
-            lat:  51.59541513,
-            lng: -0.115524108278278,
-          },
-
-          {
-            description: "Cubitt Town Primary School",
-            status: "blue",
-            lat:  51.4947571972771,
-            lng: -0.009014692,
-          },
-
-           {
-            description: "Etz Chaim Jewish Primary School",
-            status: "blue",
-            lat:  51.61559981,
-            lng: -0.240422676,
-          },
-
-          {
-            description: "Prior Weston Primary School ",
-            status: "blue",
-            lat:  51.52214051,
-            lng: -0.092782247,
-          },
-        
-        
-         {
-            description: "Rimon Jewish Primary School",
-            status: "blue",
-            lat:  51.56828182,
-            lng: -0.199899845,
-          },
-        
+var data = [
             {
-            description: "St Richard's CE Primary School",
-            status: "blue",
-            lat:  51.43702135,
-            lng: -0.318655216,
-          },
-         
-          
-          {
-            description: "Akiva Jewish Primary School",
-            status: "blue",
-            lat:  51.5954356097596,
-            lng: -0.189366491094604,
-          },
+                description: "Malorees",
+                status: "blue",
+                lat: 51.541125,
+                lng: -0.213528,
+            },
+            {
+                description: "Drayton Park",
+                status: "blue",
+                lat: 51.551662,
+                lng: -0.105591,
+            },
 
-          { 
-            description: "St Mary's RC Primary School",
-            status: "blue",
-            lat:  51.47665747596,
-            lng: -0.14647663,
-          },
+            {
+                description: "Our Lady Of Grace Catholic Junior",
+                status: "blue",
+                lat: 51.56169863,
+                lng: -0.233339501,
+            },
+            {
+                description: "Wessex Gardens Primary",
+                status: "blue",
+                lat: 51.571783,
+                lng: -0.209371,
+            },
+            {
+                description: "Ashmount Primary School",
+                status: "blue",
+                lat: 51.573959,
+                lng: -0.122003,
+            },
+            {
+                description: "Coleridge Primary School",
+                status: "blue",
+                lat: 51.576416,
+                lng: -0.12648,
+            },
+            {
+                description: "Gospel Oak Primary School",
+                status: "blue",
+                lat: 51.554622,
+                lng: -0.152963,
+            },
+            {
+                description: "St Mary's CoE Barnet",
+                status: "blue",
+                lat: 51.604358,
+                lng: -0.202394,
+            },
+            {
+                description: "Colindale Primary School",
+                status: "blue",
+                lat: 51.58956,
+                lng: -0.24674,
+            },
+
+            {
+                description: "Fleet Primary School",
+                status: "blue",
+                lat: 51.55372,
+                lng: -0.15932,
+            },
+
+            {
+                description: "Edith Neville School",
+                status: "blue",
+                lat: 51.53295,
+                lng: -0.13126,
+            },
 
 
-             { 
-            description: "Eleanor Palmer Primary School",
-            status: "blue",
-            lat:  51.55496324,
-            lng: -0.13884727,
-          },
+            {
+                description: "Our Lady of Lourdes Catholic Primary School",
+                status: "blue",
+                lat: 51.6157,
+                lng: -0.13628,
+            },
+            {
+                description: "Yerbury Primary School",
+                status: "blue",
+                lat: 51.56129,
+                lng: -0.13021,
+            },
 
-         { 
-            description: "James Wolfe Primary School",
-            status: "blue",
-            lat:  51.479469,
-            lng: -0.01294657,
-          },
+            {
+                description: "St John’s Walham Green CE Primary",
+                status: "blue",
+                lat: 51.48187,
+                lng: -0.213632,
+            },
 
+            {
+                description: "Stroud Green Primary School",
+                status: "blue",
+                lat: 51.568915,
+                lng: -0.107394,
+            },
 
-         { 
-            description: "Holy Ghost Catholic Primary School",
-            status: "blue",
-            lat:  51.4478729,
-            lng: -0.157201,
-          }
-
-              
+            {
+                description: "Campsbourne School",
+                status: "blue",
+                lat: 51.59103545,
+                lng: -0.12183483461304337,
+            },
+            {
+                description: "Bounds Green Infants School",
+                status: "blue",
+                lat: 51.60578595,
+                lng: -0.1239433119779666,
+            },
+            {
+                description: "Duncombe Primary",
+                status: "blue",
+                lat: 51.567078855759,
+                lng: -0.123668544,
+            },
+            {
+                description: "Smallwood Primary",
+                status: "blue",
+                lat: 51.43094,
+                lng: -0.177765,
+            },
+            {
+                description: "Christ Church Bentinck CE Primary School",
+                status: "blue",
+                lat: 51.52153366,
+                lng: -0.16606352,
+            },
+            {
+                description: "Christ Church CE Primary School",
+                status: "blue",
+                lat: 51.65883772,
+                lng: -0.211718068,
+            },
+            {
+                description: "St Paul's CofE Primary School",
+                status: "blue",
+                lat: 51.61655022,
+                lng: -0.1440046871538672,
+            },
+            {
+                description: "School 21",
+                status: "blue",
+                lat: 51.53841987,
+                lng: 0.001800453,
+            },
+            {
+                description: "School 360",
+                status: "blue",
+                lat: 51.53131239,
+                lng: -0.009166845,
+            },
+            {
+                description: "Surrey Square Primary",
+                status: "blue",
+                lat: 51.4895059053929,
+                lng: -0.083109315,
+            },
+            {
+                description: "Alexandra Primary School",
+                status: "blue",
+                lat: 51.59541513,
+                lng: -0.115524108278278,
+            },
+            {
+                description: "Cubitt Town Primary School",
+                status: "blue",
+                lat: 51.4947571972771,
+                lng: -0.009014692,
+            },
+            {
+                description: "Etz Chaim Jewish Primary School",
+                status: "blue",
+                lat: 51.61559981,
+                lng: -0.240422676,
+            },
+            {
+                description: "Prior Weston Primary School ",
+                status: "blue",
+                lat: 51.52214051,
+                lng: -0.092782247,
+            },
+            {
+                description: "Rimon Jewish Primary School",
+                status: "blue",
+                lat: 51.56828182,
+                lng: -0.199899845,
+            },
+            {
+                description: "St Richard's CE Primary School",
+                status: "blue",
+                lat: 51.43702135,
+                lng: -0.318655216,
+            },
+            {
+                description: "Akiva Jewish Primary School",
+                status: "blue",
+                lat: 51.5954356097596,
+                lng: -0.189366491094604,
+            },
+            {
+                description: "St Mary's RC Primary School",
+                status: "blue",
+                lat: 51.47665747596,
+                lng: -0.14647663,
+            },
+            {
+                description: "Eleanor Palmer Primary School",
+                status: "blue",
+                lat: 51.55496324,
+                lng: -0.13884727,
+            },
+            {
+                description: "James Wolfe Primary School",
+                status: "blue",
+                lat: 51.479469,
+                lng: -0.01294657,
+            },
+            {
+                description: "Holy Ghost Catholic Primary School",
+                status: "blue",
+                lat: 51.4478729,
+                lng: -0.157201,
+            }
         ];
-
-        // =============================================
-        // =============================================
-        // ==== END OF LIST OF SCHOOLS =================
-        // =============================================
-        // =============================================
-
-        var map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 10,
-          center: { lat: 51.6, lng: -0.15 },
-          mapTypeControl: false,
-          streetViewControl: false,
-        });
-
-        var iconBase = "http://maps.google.com/mapfiles/ms/icons/";
-        var iconFromStatus = {
-          red: iconBase + "red-pushpin.png",
-          green: iconBase + "grn-pushpin.png",
-          blue: iconBase + "blue-pushpin.png",
-          purple: iconBase + "purple-pushpin.png",
-        };
-
-        var infoWindow = new google.maps.InfoWindow({});
-
-        function addInfoToMarker(marker, description) {
-          marker.addListener("click", function () {
-            infoWindow.setContent(description);
-            infoWindow.open({
-              anchor: marker,
-              map: map,
-              shouldFocus: false,
-            });
-          });
-        }
-
-        for (var i = 0; i < data.length; i++) {
-          var marker = new google.maps.Marker({
-            position: { lat: data[i].lat, lng: data[i].lng },
-            map: map,
-            icon: iconFromStatus[data[i].status],
-          });
-          addInfoToMarker(marker, data[i].description);
-        }
-      }
-    </script>
-    <script
-      async
-      defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2h1P8RbAMjA8iHqs1RyQu0495FWxB37A&callback=initMap"
-    ></script>
-  </body>
-</html>
