@@ -1,4 +1,15 @@
-var data = [
+<html>
+<body style="margin: 0px">
+<div id="map" style="width: 100%; height: 100%"></div>
+<script>
+    function initMap() {
+        // =============================================
+        // =============================================
+        // ===== LIST OF SCHOOLS =======================
+        // =============================================
+        // =============================================
+
+        var data = [
             {
                 description: "Malorees",
                 status: "blue",
@@ -224,3 +235,55 @@ var data = [
                 lng: -0.157201,
             }
         ];
+
+        // =============================================
+        // =============================================
+        // ==== END OF LIST OF SCHOOLS =================
+        // =============================================
+        // =============================================
+
+        var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 10,
+            center: {lat: 51.6, lng: -0.15},
+            mapTypeControl: false,
+            streetViewControl: false,
+        });
+
+        var iconBase = "http://maps.google.com/mapfiles/ms/icons/";
+        var iconFromStatus = {
+            red: iconBase + "red-pushpin.png",
+            green: iconBase + "grn-pushpin.png",
+            blue: iconBase + "blue-pushpin.png",
+            purple: iconBase + "purple-pushpin.png",
+        };
+
+        var infoWindow = new google.maps.InfoWindow({});
+
+        function addInfoToMarker(marker, description) {
+            marker.addListener("click", function () {
+                infoWindow.setContent(description);
+                infoWindow.open({
+                    anchor: marker,
+                    map: map,
+                    shouldFocus: false,
+                });
+            });
+        }
+
+        for (var i = 0; i < data.length; i++) {
+            var marker = new google.maps.Marker({
+                position: {lat: data[i].lat, lng: data[i].lng},
+                map: map,
+                icon: iconFromStatus[data[i].status],
+            });
+            addInfoToMarker(marker, data[i].description);
+        }
+    }
+</script>
+<script
+        async
+        defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2h1P8RbAMjA8iHqs1RyQu0495FWxB37A&callback=initMap"
+></script>
+</body>
+</html>
